@@ -7,26 +7,38 @@ r.numb <- random %% 10
 
 r.list <- c(r.thou, r.hund, r.tent, r.numb)
 
-guess <- scan(nmax = 1)
+times <- c(1:9999)
+counts <- 0
 
-g.thou <- guess %/% 1000
-g.hund <- (guess %/% 100) %% 10
-g.tent <- (guess %% 100) %/% 10
-g.numb <- guess %% 10
-
-g.list <- c(g.thou, g.hund, g.tent, g.numb)
-  
-x <- 1:4
-count <- 0
-
-for(i in x)
+for (j in times)
 {
-  if (r.list[i] == g.list[i]) {
-    count = count + 1
-    }
+  guess <- scan(nmax = 1)
+
+  g.thou <- guess %/% 1000
+  g.hund <- (guess %/% 100) %% 10
+  g.tent <- (guess %% 100) %/% 10
+  g.numb <- guess %% 10
+
+  g.list <- c(g.thou, g.hund, g.tent, g.numb)
+  
+  x <- 1:4
+  correct <- 0
+
+  for(i in x)
+  {
+    if (r.list[i] == g.list[i]) {
+      correct = correct + 1
+      }
+  }
+
+  cat(correct, "A", 4-correct, "B")
+  
+if (guess == random){
+  break
+} else {
+    counts = counts + 1
+  }
 }
 
-cat(count, "A", 4-count, "B")
-
-
+cat("總共猜了:", counts + 1, "次")
 
