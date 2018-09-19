@@ -14,4 +14,4 @@ days.postion <- order(person.df$person.days)
 person.df[days.postion, ]
 spirit.520 <- grepl("520", person.df$person.id)
 
-person.df[spirit.520, ]R
+person.df[spirit.520, ]
