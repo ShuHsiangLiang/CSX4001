@@ -1,3 +1,8 @@
+install.packages("rvest")
+install.packages("httr")
+install.packages("XML")
+install.packages("RCurl")
+
 library(rvest)
 library(httr)
 
