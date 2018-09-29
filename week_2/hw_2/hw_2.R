@@ -16,4 +16,4 @@ data <- data.frame(英雄 = champion,勝率 = rate, KDA率 = KDA, CS數 = CS, �
 
 data
 
-write.table(data, file = "LoL 各英雄出場調查", sep = "  ")
+write.table(data, file = "LoL 各英雄出場調查（台灣）", sep = "  ")
