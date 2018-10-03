@@ -30,7 +30,7 @@ my.data <- setDF(DF)
 # my.data = read.csv("中山區垃圾桶分佈.csv", fileEncoding = "utf-8")
 # my.data
 
-#刪除不正確資料（緯度相差過高）
+#刪除不正確資料（緯度相差過高）（可能為手誤）
 
 fix.data <- my.data[-655,]
 fix.data <- fix.data[-1749,]
