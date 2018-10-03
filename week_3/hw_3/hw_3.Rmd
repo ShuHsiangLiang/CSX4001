@@ -1,3 +1,17 @@
+---
+title: "hw_3"
+author: "PeterLiang"
+date: "2018/10/3"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### 台北市垃圾桶分佈
+
+```{r}
 # 匯入相關 library
 library(mapproj)
 library(ggmap)
@@ -19,8 +33,6 @@ for (i in seq_along(files)){
   temp[[i]] <- fread(files [i])
 }
 
-temp
-
 # 將 temp 利用 rbindlist 串接，並存成 data.frame
 DF <- rbindlist(temp)
 my.data <- setDF(DF)
@@ -30,7 +42,7 @@ my.data <- setDF(DF)
 # my.data = read.csv("中山區垃圾桶分佈.csv", fileEncoding = "utf-8")
 # my.data
 
-#刪除不正確資料（緯度相差過高）
+#刪除不正確資料（緯度相差過高）（可能為手誤）
 
 fix.data <- my.data[-655,]
 fix.data <- fix.data[-1749,]
@@ -46,3 +58,4 @@ my.plot <- my.plot + layer(
 my.plot
 
 # 串接 ggmap
+```
