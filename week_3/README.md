@@ -22,3 +22,6 @@
 - [ ] 完成 REAKME.md 
 - [ ] 將作業存成 R markdown 格式並 knit to html 檔案
 - [ ] 加分作業
+
+* 北投區垃圾桶分佈因資料整理不完全（未主動分類），因此暫時不匯入整理。（已解決 -> 利用 excel 整理 csv 檔並重新匯出）
+* 用R 將多筆 csv 資料會成一個 data.frame（利用 **list.files** 及 **fread** 函數）
