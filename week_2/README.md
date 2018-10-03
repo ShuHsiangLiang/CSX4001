@@ -7,4 +7,4 @@
 - [ ] 加分作業
 * 因 [原本網頁](http://na.op.gg/statistics/champion/) 利用 CSS selectors 找尋不到目標網頁，因此進入 Javascript 控制台選取 **XHR (Xml Http Request)** 找到目標網頁並分析。
 
-* [html -> https://shuhsiangliang.github.io/CSX4001//week_2/hw_2/hw_2.html]
+* [hw_2 網頁瀏覽型式](https://shuhsiangliang.github.io/CSX4001//week_2/hw_2/hw_2.html)
