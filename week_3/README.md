@@ -17,7 +17,7 @@
 
 - [x] 建立 week_3, hw_3
 - [x] 選擇資料
-    1. 進入 **[臺北市政府資料開放平台](https://data.taipei/index)** 找尋資料｜
+    1. 進入 **[臺北市政府資料開放平台](https://data.taipei/index)** 找尋資料
     2. 選擇 **台北市各垃圾桶分佈** 為此次作業主題
 - [ ] 完成 REAKME.md 
 - [ ] 將作業存成 R markdown 格式並 knit to html 檔案
