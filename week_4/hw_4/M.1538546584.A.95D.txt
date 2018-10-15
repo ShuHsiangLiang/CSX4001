@@ -1,0 +1,86 @@
+作者a110482 (研磨綠豆沙)看板StupidClown標題[無言] 修正註解時間Wed Oct  3 14:03:01 2018
+在寫程式的時候，有時候會遇到一些不想現在處理的狀況
+
+這時候會先打個註解，以後"心情好"的時候可以回來處理．
+
+大概會長這樣：
+
+
+    我是程式碼 我是程式碼 我是程式碼
+
+    # FIXME:有10%機率會爆炸！
+
+    我是有問題的程式碼 我是有問題的程式碼
+
+然後剛剛打字打到恍神...
+
+https://imgur.com/a/fobl7Zd
+
+
+--
+※ 發信站: 批踢踢實業坊(ptt.cc), 來自: 36.228.30.149
+※ 文章網址: https://www.ptt.cc/bbs/StupidClown/M.1538546584.A.95D.html
+推 kckckckc    : 寫程式寫到流露真情XD 10/03 14:17
+推 john8324    : 要考慮轉職了嗎 10/03 14:33
+推 caesarh     : 要來罐泰山先炒me嗎？ 10/03 14:36
+推 lo0945      : 老闆表示：沒聽過這種要求 10/03 14:45
+推 Nishikino252: 很想領資遣費吼 10/03 15:14
+推 IanDai      : 我看不到圖QQ 10/03 16:50
+推 Leo0862     : 老闆: OK,這我列入TODO list了 10/03 17:45
+→ a86395700   : 沒圖 10/03 17:58
+我看都還在啊＠＠
+再傳一次：https://imgur.com/a/mkom57k
+※ 編輯: a110482 (36.228.30.149), 10/03/2018 18:11:46
+推 castleoac   : 我看也都有圖～ 10/03 18:26
+推 olderfish   : 不久之後就會變成已確認，說不定後面還會貼心地附上 10/03 19:53
+→ olderfish   : 一個小勾勾 10/03 19:53
+推 g6318ian    : 這邊指的圖是手機版的直接開圖 10/03 19:53
+推 ck0611      : https://i.imgur.com/mXPuI4o_d.jpg 10/03 19:58
+推 ck0611      : 嘖 重貼 https://i.imgur.com/gvoLh6Z.jpg 10/03 20:00
+→ a110482     : 樓上我該如何感謝你！！ 10/03 20:02
+推 HKDW        : 在一起 10/03 20:09
+推 sandy0601   : 在一起 10/03 20:38
+推 NTUGinger   : 在一起 10/03 20:41
+推 hua0815     : 在一起 10/03 20:44
+推 laswish     : 在一起 10/03 20:51
+推 zxcv910147  : 在一起 10/03 20:53
+推 freezecomet : 在一起 10/03 20:53
+推 QT1020      : 在一起 10/03 20:54
+推 neozerocola : 在一起 10/03 20:57
+→ a8418635    : 看……看不懂 10/03 21:00
+→ Cayota      : 樓上，FIXME修理我打成FIREME炒了我XDD 10/03 21:02
+推 Charles1984s: 修理翻成國文也是有各種含義啦 10/03 21:10
+推 icexfox     : 樓上可以舉例嗎？  （舉手） 10/03 21:18
+→ lofe5206    : 三樓偷業 10/03 21:28
+→ saltlake    : 茼蒿們都在一起 10/03 21:49
+噓 moebear     : /a/ 10/03 22:36
+噓 kaltu       : PEP8規定註解#後面要接一個空白 10/03 23:10
+噓 EricTao     : 截那三小圖 害我以為圖被擋住== 10/03 23:14
+推 EricTao     : http://i.imgur.com/JDXbXLq.jpg 10/03 23:18
+→ EricTao     : 滑好幾遍就是看不到上半部== 10/03 23:19
+推 blackbottle : 因為圖只有這樣啊…… 10/03 23:47
+推 CP64        : 乾 自動把 FIREME 腦內校正成 FIXME 10/04 01:19
+推 BlackAndWhit: 所以要在一起了嗎 10/04 02:13
+噓 s12358972   : 會寫code不知道要把/a/去掉 10/04 09:00
+推 IScmDa      : 會寫程式，不會貼jpg比較好笑XD 10/04 09:27
+推 noirel      : 寫 Django 吼 10/04 09:38
+推 johnnyham   : 原來圖只有小小一塊,以為圖壞了+1 10/04 12:35
+推 gulesmoon   : csrf忽略的修飾子，看起來應該是django齁XD上面還有 10/05 01:13
+→ gulesmoon   : json response 10/05 01:13
+→ a110482     : 連 json response 都被你看出來了，是內行的 10/05 08:28
+→ ckhevan     : Ck0611 你要跟誰在一起 10/05 14:36
+推 leo950518mm : 是sublime 嗎? 10/05 20:15
+→ LawLombie   : 還是vim 10/06 09:27
+→ LawLombie   : 求推薦文字editor 10/06 09:28
+→ LawLombie   : 最近在尋找好用的文字編輯器 10/06 09:29
+→ LawLombie   : 或ide 10/06 09:29
+→ LawLombie   : 適合java的 10/06 09:30
+→ LawLombie   : 拜托你了 10/06 09:30
+→ LawLombie   : java非Javascript 10/06 09:31
+推 LawLombie   : 求你了 10/06 12:08
+→ kaltu       : 看起來像PyCharm，所以違反PEP8才會被highlight 10/06 17:22
+→ kaltu       : 要寫Java當然就IntelliJ 10/06 17:22
+→ kaltu       : 單純文字編輯器，非IDE，推VS code或Atom 10/06 17:24
+推 LawLombie   : 謝謝樓上 10/06 19:34
+→ LawLombie   : 目前決定用vim 10/06 19:35
+

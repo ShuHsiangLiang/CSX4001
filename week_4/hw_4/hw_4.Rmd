@@ -1,0 +1,119 @@
+---
+title: "hw_4"
+author: "PeterLiang"
+date: "2018/10/16"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## hw_4
+
+```{r}
+## 載入相關套件
+
+library(XML)
+library(RCurl)
+library(httr)
+library(rvest)
+
+## 由於 https 協定使得原本只有 "www" 網域名稱而無法找到
+
+data <- list()
+
+## 讀取笨版最新十個分頁的所有文章（2018/09 ~ 2018/10)，並將主頁上文字輸出
+
+for(i in 3671:3680){
+  tmp <- paste(i, '.html', sep='')
+  url <- paste('https://www.ptt.cc/bbs/StupidClown/index', tmp, sep='')
+  html <- htmlParse(getURL(url))
+  url.list <- xpathSApply(html, "//div[@class='title']/a[@href]", xmlAttrs)
+  data <- rbind(data, paste('https://www.ptt.cc', url.list, sep=''))
+}
+
+data.chr <- unlist(data)
+data.chr
+
+## 利用網址進行分頁篩選，並將文字寫入 doc 並輸出成 .txt 檔案，並依照分頁編碼（M12XXXX...) 進行檔案命名。
+
+getdoc <- function(address){
+  start <- regexpr('https', address)[1]
+  end <- regexpr('html', address)[1]
+  
+  if(start != -1 & end != -1){
+    url <- substr(address, start, end+3)
+    getURL(url)
+    html <- htmlParse(getURL(url))
+    doc <- xpathSApply(html, "//div[@id='main-content']", xmlValue)
+    name <- strsplit(url, '/')[[1]][6]
+    write(doc, gsub('html', 'txt', name))
+  }      
+}
+sapply(data.chr, getdoc)
+
+## 引入文字分析套件
+
+library(NLP)
+library(tm)
+library(tmcn)
+library(rJava)
+library(Rwordseg)
+library(RColorBrewer)
+library(wordcloud)
+
+## 利用 rJava 將 doc 資料夾內所有 .txt 檔案進行文字篩檢
+
+d.corpus <- Corpus(DirSource("doc"), list(language = NA))
+
+d.corpus <- tm_map(d.corpus, removePunctuation)
+d.corpus <- tm_map(d.corpus, removeNumbers)
+
+d.corpus <- tm_map(d.corpus, function(word) {
+  gsub("[A-Za-z0-9]", "", word)
+})
+
+
+## 利用「第三屆 ptt 流行語投票」進行常用語篩選。
+
+fashion.url <- read_html("http://zh.pttpedia.wikia.com/wiki/%E7%AC%AC%E4%B8%89%E5%B1%86%E6%89%B9%E8%B8%A2%E8%B8%A2%E6%B5%81%E8%A1%8C%E8%AA%9E%E5%A4%A7%E8%B3%9E", encoding = 'utf-8')
+fashion.word <- html_node(fashion.url, "#mw-content-text") %>% html_text %>% removePunctuation %>% removeNumbers
+
+## 由於 CSS Seletor 並無法篩選出流行用語，故自行依照資料型態進行流行語篩檢。
+a1 <- gregexpr("票數", fashion.word)
+a2 <- regexpr("參見", fashion.word)
+word <- substr(fashion.word, start = 244, stop = 1215)
+w1 <- gsub(" ", "", word)
+
+## 利用 segementCN 進行斷句篩檢
+
+d.corpus <- tm_map(d.corpus[1:100], segmentCN, nature = TRUE)
+
+d.corpus <- tm_map(d.corpus, function(sentence) {
+  noun <- lapply(sentence, function(w) {
+    w[names(w) == "n"]
+  })
+  unlist(noun)
+})
+
+d.corpus <- Corpus(VectorSource(d.corpus))
+
+## 將一些無篩檢意義的詞彙篩除
+
+myStopWords <- c(stopwordsCN(), "編輯", "時間", "標題", "發信", "實業", "作者")
+d.corpus <- tm_map(d.corpus, removeWords, myStopWords)
+
+head(myStopWords, 30)
+tdm <- TermDocumentMatrix(d.corpus, control = list(wordLengths = c(2, Inf)))
+inspect(tdm[1:10, 1:2])
+
+m1 <- as.matrix(tdm)
+v <- sort(rowSums(m1), decreasing = TRUE)
+d <- data.frame(word = names(v), freq = v)
+wordcloud(d$word, d$freq, min.freq = 10, random.order = F, ordered.colors = F, 
+          colors = rainbow(length(row.names(m1))))
+
+
+
+```
