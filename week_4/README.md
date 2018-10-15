@@ -34,3 +34,4 @@
 
 * [解決 rJava 在 Mac 中無法對應路徑的問題](https://github.com/s-u/rJava/issues/151) -> 需利用 Terminal 進行 sudo R CMD javareconf 
 * 本想利用 Facebook 的社群權杖去讀取公開粉專的資訊，但因隱私權相關規定變更原因，須將應用程式合法上架才可使用，因此作罷。
+* [hw_4.html 檔案](https://shuhsiangliang.github.io/CSX4001//week_4/hw_4/hw_4.html)
