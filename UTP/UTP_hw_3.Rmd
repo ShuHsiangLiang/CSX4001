@@ -1,0 +1,58 @@
+---
+title: "UTP_hw_3"
+output:
+  html_document:
+    df_print: paged
+---
+
+This is UPT hw_3 speaking.
+
+```{r }
+## Loding required library
+
+library(readxl)
+library(ggplot2)
+library(NLP)
+
+trip.data <- read_xlsx("Trip Generation.xlsx")
+
+head(trip.data)
+
+ggplot(trip.data, aes(x = TP, y = Pop)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Production", y = "Person") 
+
+LR.1 <- lm(TP ~ Pop, data = trip.data)
+
+summary(LR.1)
+
+ggplot(trip.data, aes(x = TP, y = Inc)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Production", y = "Inc.")
+
+LR.2 <- lm(TP ~ Inc, data = trip.data)
+
+summary(LR.2)
+
+ggplot(trip.data, aes(x = TP, y = HH)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Production", y = "HH size")
+
+LR.3 <- lm(TP ~ HH, data = trip.data)
+
+summary(LR.3)
+
+ggplot(trip.data, aes(x = TP, y = Car)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Production", y = "Car")
+
+LR.4 <- lm(TP ~ Car, data = trip.data)
+
+summary(LR.4)
+
+ggplot(trip.data, aes(x = TP, y = Employ)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Production", y = "Employed Pop")
+
+LR.5 <- lm(TP ~ Employ, data = trip.data)
+
+summary(LR.5)
+
+ggplot(trip.data, aes(x = TP, y = Bus)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Production", y = "No. of bus routes")
+
+LR.6 <- lm(TP ~ Bus, data = trip.data)
+
+summary(LR.6)
+
+```
+
