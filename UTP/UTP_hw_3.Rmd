@@ -54,5 +54,15 @@ LR.6 <- lm(TP ~ Bus, data = trip.data)
 
 summary(LR.6)
 
+ggplot(trip.data, aes(x = TP, y = Pop + Car + Employ)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Production", y = "Produciton_COE")
+LR.Trip_produciton <- lm(TP ~ Pop + Car + Employ, data = trip.data)
+
+summary(LR.Trip_produciton)
+
+ggplot(trip.data, aes(x = TP, y = Employ + Inc)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Production", y = "Attraction_COE")
+LR.Trip_attraction <- lm(TP ~ Employ + Inc, data = trip.data)
+
+summary(LR.Trip_attraction)
+
 ```
 
