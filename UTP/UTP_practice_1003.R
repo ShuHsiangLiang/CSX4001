@@ -1,47 +1,40 @@
+## question 1
+
 library(readxl)
 library(ggplot2)
 library(NLP)
 
-trip.data <- read_xlsx("Trip Generation.xlsx")
+trip_production <- read_xlsx("Trip Generation.xlsx", 1)
+trip_attraction <- read_xlsx("Trip Generation.xlsx", 2)
 
-head(trip.data)
+ggplot(trip.data, aes(x = TP, y = Pop + Inc + HH + Car +Employ + Bus)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Production", y = "All")
+LR.Trip_produciton <- lm(TP ~ Pop + Inc + HH + Car +Employ + Bus, data = trip.data)
 
-ggplot(trip.data, aes(x = TP, y = Pop)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Production", y = "Person") 
+summary(LR.Trip_produciton)
 
-LR.1 <- lm(TP ~ Pop, data = trip.data)
+# (Pop, HH, Bus) -> P-value > 0.02 -> reject 
 
-summary(LR.1)
+ggplot(trip_production, aes(x = TP, y = Inc + Car + Employ)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Production fixed", y = "Inc + Car + Employ")
+LR.Trip_production_fixed <- lm(TP ~ Inc + Car + Employ, data = trip.data)
+summary(LR.Trip_production_fixed)
 
-ggplot(trip.data, aes(x = TP, y = Inc)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Production", y = "Inc.")
+LR.Trip_attraction <- lm(TA ~ Com + Area + Area_for_commercial_use + Pop + Bank_branch + School + Bus, data = trip_attraction)
+summary(LR.Trip_attraction)
 
-LR.2 <- lm(TP ~ Inc, data = trip.data)
+# (Area, Area_for_commercial_use, Bank_branch, Bus_routes ) -> P-value > 0.05 -> reject
 
-summary(LR.2)
+ggplot(trip_attraction, aes(x = TA, y = Com + Pop + School)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Attraction fixed", y = "Com + Pop + School")
+LR.Trip_attraction_fixed <- lm(TA ~ Com + Pop + School, data = trip_attraction)
+summary(LR.Trip_attraction_fixed)
+print(LR.Trip_attraction_fixed)
 
-ggplot(trip.data, aes(x = TP, y = HH)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Production", y = "HH size")
+## question_2
 
-LR.3 <- lm(TP ~ HH, data = trip.data)
+new <- data.frame(6,6, 6 , 6)
+q2 <- read_xlsx("q2.xlsx")
+TP <- predict(LR.Trip_production_fixed, q2) 
+TA <- predict(LR.Trip_attraction_fixed, q2)
 
-summary(LR.3)
+Data <- data.frame()
 
-ggplot(trip.data, aes(x = TP, y = Car)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Production", y = "Car")
 
-LR.4 <- lm(TP ~ Car, data = trip.data)
-
-summary(LR.4)
-
-ggplot(trip.data, aes(x = TP, y = Employ)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Production", y = "Employed Pop")
-
-LR.5 <- lm(TP ~ Employ, data = trip.data)
-
-summary(LR.5)
-
-ggplot(trip.data, aes(x = TP, y = Bus)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Production", y = "No. of bus routes")
-
-LR.6 <- lm(TP ~ Bus, data = trip.data)
-summary(LR.6)
-
-ggplot(trip.data, aes(x = TP, y = Pop + Inc + HH + Car + Employ + Bus)) + geom_point(shape = 10, size = 5) + geom_smooth(method = lm) + labs(x = "Trip Production", y = "All Coefficient")
-LR <- lm(TP ~ Pop + Inc + HH + Car + Employ + Bus, data = trip.data)
-
-summary(LR)
