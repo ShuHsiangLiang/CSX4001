@@ -6,6 +6,3 @@
 
 - [資料科學程式設計GitHub
 ](https://github.com/NTU-CSX-DataScience/107-1RSampleCode)
-
-
-~~尚未選擇專案~~
